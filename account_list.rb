@@ -7,9 +7,7 @@ require "json"
 
 load "user_info.rb"
 
-REQUEST="/api/v1/accounts/1"
-
-#TOKEN, HOST = USE_INFO["token"], USE_INFO["host"]
+REQUEST="/accounts/1"
 
 # Web Service call
 

@@ -10,7 +10,7 @@ UNIQNAME="FLICKA"
 USER_STRING="sis_login_id:#{UNIQNAME}"
 
  # works
-REQUEST="/api/v1/users/#{USER_STRING}/enrollments.json"
+REQUEST="/users/#{USER_STRING}/enrollments.json"
 
 # Web Service call
 

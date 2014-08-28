@@ -4,8 +4,7 @@ require "json"
 
 load "user_info.rb"
 
-#REQUEST="doc/api/users.json"
-REQUEST="/api/v1/users/self/activity_stream"
+REQUEST="/users/self/activity_stream"
 
 # Web Service call
 

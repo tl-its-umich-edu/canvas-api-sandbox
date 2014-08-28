@@ -4,7 +4,7 @@ require "json"
 
 load "user_info.rb"
 
-REQUEST="/api/v1/accounts/1/users"
+REQUEST="/accounts/1/users"
 
 # Web Service call
 
