@@ -1,0 +1,4 @@
+# Configure current active token for testing
+TOKEN=<paste in a current token provided by the UM-API directory for short term testing>
+#end
+

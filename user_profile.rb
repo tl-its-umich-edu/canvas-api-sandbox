@@ -5,7 +5,6 @@ require "json"
 load "user_info.rb"
 
 #UNIQNAME="FLICKA"
-UNIQNAME="dlhaines"
 
 REQUEST="/users/sis_login_id:#{UNIQNAME}/profile.json"
 

@@ -19,15 +19,15 @@ json_data=`#{URL}`
 
 puts json_data
 
-json_parsed = JSON.parse(json_data)
+#json_parsed = JSON.parse(json_data)
 
-json_parsed.each { |x| 
-#    puts x
-    puts "---------"
-    x.each do |key, array|
-       puts "\t#{key} value: #{array}"
-    end
-}
+# json_parsed.each { |x| 
+# #    puts x
+#     puts "---------"
+#     x.each do |key, array|
+#        puts "\t#{key} value: #{array}"
+#     end
+# }
 
 #end
 

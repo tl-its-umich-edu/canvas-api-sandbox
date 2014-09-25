@@ -11,7 +11,7 @@ REQUEST="/accounts/1"
 
 # Web Service call
 
-URL="curl -H \"Authorization: Bearer #{TOKEN}\" #{HOST}/#{REQUEST}"
+URL="curl -k -H \"Authorization: Bearer #{TOKEN}\" #{HOST}/#{REQUEST}"
 print "url: #{URL}"
 json_data=`#{URL}`
 

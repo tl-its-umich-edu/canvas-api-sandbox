@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
+# List accounts current user can manage. This only works for 
+# account 1
+
 require "json"
 
 load "user_info.rb"
 
-REQUEST="/accounts/1/users"
+#REQUEST="/accounts/1"
+REQUEST="Terms"
 
 # Web Service call
 
@@ -19,3 +23,4 @@ print "#{parsed}"
 
 print "\n";
 #end
+

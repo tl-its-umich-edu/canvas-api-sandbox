@@ -1,1 +1,3 @@
+# ignore these files which contain real configuration information.
 user_info.rb
+*.config

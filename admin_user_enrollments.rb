@@ -5,7 +5,7 @@ require "json"
 load "user_info.rb"
 
 
-UNIQNAME="FLICKA"
+#UNIQNAME="FLICKA"
 ### make it easy to switch between different methods of identifying the user (object) to find.
 USER_STRING="sis_login_id:#{UNIQNAME}"
 

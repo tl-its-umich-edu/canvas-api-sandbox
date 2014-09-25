@@ -1,5 +1,7 @@
 BRANCH FOR TESTING USE OF ESB URL
 
+
+
 Sample scripts to query Canvas.  The user information is factored out
 into user_info.rb and automatically included in each script.  Note
 that user_info.rb itself must NEVER be checked into git.  To use real
