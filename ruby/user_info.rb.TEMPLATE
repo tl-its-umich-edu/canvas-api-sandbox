@@ -15,17 +15,40 @@
 ## the refresh.
 
 HOST_INFO = { 
-  "BETA" => { "token" => "ImACanvasTokenAndThatsOK",
-              "host" => "https://umich.beta.instructure.com"
+  "BETA" => { "token" => "BINGO",
+              "host" => "https://umich.beta.instructure.com/api/v1"
             },
-  "PROD" => { "token" => "IAuthorizeAllNightAndAlsoAllDay",
-              "host" => "https://umich.instructure.com"
-            }
+
+  "PROD" => { "token" => "BONGO",
+              "host" => "https://umich.instructure.com/api/v1"
+            },
+  "API_DIR" => { "token" => "HOWDY",
+                 "host" => "https://woodnymph.dsc.umich.edu:8243/services/CanvasAdmin"
+               },
+  "DLH-API" => { "token" => "HOODY",
+                 "host" => "https://woodpigeon.dsc.umich.edu:8243/Canvas/Admin/v1"
+               },
+  ### note that this token expires frequently and most likely needs to be refreshed.
+  "PROD-API-CANVAS" => { "token" => "VERYIMPORTANT",
+                  "host" => "https://api-gw.it.umich.edu/Canvas/Admin/v1"
+               },
+  ### note that this token expires frequently and most likely needs to be refreshed.
+  "PROD-API-UM" => { "token" => "MOREIMPORTANT",
+                  "host" => "https://api-gw.it.umich.edu/Curriculum/SOC/v1"
+               },
 }
 
 ## select the environment to use.  Currently done here so it is automatically is applied to all scripts.
 
-USE_INFO = HOST_INFO["BETA"]
+
+#USE_INFO = HOST_INFO["PROD-API-CANVAS"]
+USE_INFO = HOST_INFO["PROD-API-UM"]
+#USE_INFO = HOST_INFO["PROD"]
+#USE_INFO = HOST_INFO["API_DIR"]
+#USE_INFO = HOST_INFO["DLH-API"]
+
 TOKEN, HOST = USE_INFO["token"], USE_INFO["host"]
+
+UNIQNAME="instx"
 
 #end
