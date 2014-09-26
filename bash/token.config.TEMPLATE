@@ -1,4 +1,25 @@
-# Configure current active token for testing
-TOKEN=<paste in a current token provided by the UM-API directory for short term testing>
+# Application OAUTH security information from WSO2 subcription page.
+
+# Model credential files.
+
+## When sourcing this file supply the WSO2 application name as the first argument.
+## Add credentials for additional relevant applications to the non-template copy of this file.
+
+APPLICATION=$1
+
+if [ $APPLICATION == "SD-QA" ]; then
+    ACCESS_TOKEN=<paste in a current token provided by the UM-API directory subscription pagefor short term testing>
+    CONSUMER_KEY=<paste in consumer key>
+    CONSUMER_SECRET=<paste in consumer secret>
+    TOKEN_SERVER=<api url for getting and renewing tokens>
+fi
+
+if [ $APPLICATION == "NOT_OHIO_STATE" ]; then
+    ACCESS_TOKEN=<paste in a current token provided by the UM-API directory subscription pagefor short term testing>
+    CONSUMER_KEY=<paste in consumer key>
+    CONSUMER_SECRET=<paste in consumer secret>
+    TOKEN_SERVER=<api url for getting and renewing tokens>
+fi
+
 #end
 
