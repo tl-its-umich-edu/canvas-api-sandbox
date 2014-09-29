@@ -1,0 +1,31 @@
+### Store associated token / host authentication information by environment.
+
+## THIS IS A RUBY SCRIPT.
+
+### Create a hash of token / host information for each environment and
+### keep them all in a single hash indexed by environment name.  More environments 
+### can be added as necessary.
+
+### TTD:
+# - would this be better as a yaml file?
+# - set the environment from calling script.  How easily specify environment across all scripts?
+
+#######
+## Note that the beta instance is refreshed often and existing tokens will no longer work after
+## the refresh.
+
+HOST_INFO = { 
+  "BETA" => { "token" => "ImACanvasTokenAndThatsOK",
+              "host" => "https://umich.beta.instructure.com"
+            },
+  "PROD" => { "token" => "IAuthorizeAllNightAndAlsoAllDay",
+              "host" => "https://umich.instructure.com"
+            }
+}
+
+## select the environment to use.  Currently done here so it is automatically is applied to all scripts.
+
+USE_INFO = HOST_INFO["BETA"]
+TOKEN, HOST = USE_INFO["token"], USE_INFO["host"]
+
+#end
