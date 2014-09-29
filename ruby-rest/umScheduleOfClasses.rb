@@ -1,22 +1,29 @@
 #!/usr/bin/env ruby
 
-# List accounts current user can manage. This only works for 
-# account 1
+# List terms for UM 
 
 require "json"
+require "rest-client"
+require "logger"
 
 load "user_info.rb"
 
-#REQUEST="/accounts/1"
 REQUEST="Terms"
 
 # Web Service call
 
-URL="curl -k -H \"Authorization: Bearer #{TOKEN}\" #{HOST}/#{REQUEST}"
-print "url: #{URL}"
-json_data=`#{URL}`
+URL="#{HOST}/#{REQUEST}"
 
-#print "#{json_data}\n"
+log = Logger.new(STDOUT)
+log.level = Logger::DEBUG
+RestClient.log = log
+
+response = RestClient.get URL, { :Authorization =>"Bearer #{TOKEN}",
+                                 :accept => :json,
+                                 :verify_ssl => OpenSSL::SSL::VERIFY_NONE}
+puts response.body
+json_data = response.body
+
 parsed = JSON.parse(json_data)
 
 print "#{parsed}"
