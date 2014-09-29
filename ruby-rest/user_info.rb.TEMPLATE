@@ -1,0 +1,54 @@
+### Store associated token / host authentication information by environment.
+
+## THIS IS A RUBY SCRIPT.
+
+### Create a hash of token / host information for each environment and
+### keep them all in a single hash indexed by environment name.  More environments 
+### can be added as necessary.
+
+### TTD:
+# - would this be better as a yaml file?
+# - set the environment from calling script.  How easily specify environment across all scripts?
+
+#######
+## Note that the beta instance is refreshed often and existing tokens will no longer work after
+## the refresh.
+
+HOST_INFO = { 
+  "BETA" => { "token" => "BINGO",
+              "host" => "https://umich.beta.instructure.com/api/v1"
+            },
+
+  "PROD" => { "token" => "BONGO",
+              "host" => "https://umich.instructure.com/api/v1"
+            },
+  "API_DIR" => { "token" => "HOWDY",
+                 "host" => "https://woodnymph.dsc.umich.edu:8243/services/CanvasAdmin"
+               },
+  "DLH-API" => { "token" => "HOODY",
+                 "host" => "https://woodpigeon.dsc.umich.edu:8243/Canvas/Admin/v1"
+               },
+  ### note that this token expires frequently and most likely needs to be refreshed.
+  "PROD-API-CANVAS" => { "token" => "VERYIMPORTANT",
+                  "host" => "https://api-gw.it.umich.edu/Canvas/Admin/v1"
+               },
+  ### note that this token expires frequently and most likely needs to be refreshed.
+  "PROD-API-UM" => { "token" => "MOREIMPORTANT",
+                  "host" => "https://api-gw.it.umich.edu/Curriculum/SOC/v1"
+               },
+}
+
+## select the environment to use.  Currently done here so it is automatically is applied to all scripts.
+
+
+#USE_INFO = HOST_INFO["PROD-API-CANVAS"]
+USE_INFO = HOST_INFO["PROD-API-UM"]
+#USE_INFO = HOST_INFO["PROD"]
+#USE_INFO = HOST_INFO["API_DIR"]
+#USE_INFO = HOST_INFO["DLH-API"]
+
+TOKEN, HOST = USE_INFO["token"], USE_INFO["host"]
+
+UNIQNAME="instx"
+
+#end
