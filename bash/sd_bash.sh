@@ -8,9 +8,9 @@
 ## Read in shared application token information.  The argument specifies
 ## the particular configuration to use.
 
-source ./token.config SD-QA
+source ./token.config QA_TL_HACKATHON_10_2014
 
-set -x
+set +x
 
 # requests
 
@@ -28,20 +28,39 @@ function getTermsAll {
     local t=$2
     echo "+++++++ STUDENT: $u"
 
-    HOST=https://woodpigeon.dsc.umich.edu:8243
+    #HOST=https://woodpigeon.dsc.umich.edu:8243
+
+    #HOST=http://api-gw.it.umich.edu
+    HOST=http://woodpigeon.dsc.umich.edu:8280
 
     local URL_SD=$HOST/StudentDashboard/v1/Students/$u/Terms
-    local URL_SR=$HOST/StudentRecords/v1/Students/$u/Terms
     local URL_SD_SCHEDULE=$HOST/StudentDashboard/v1/Students/$u/Terms/$t/Schedule
+
+    local URL_SR=$HOST/StudentRecords/v1/Students/$u/Terms
     local URL_SR_SCHEDULE=$HOST/StudentRecords/v1/Students/$u/Terms/$t/Schedule
     
-    set -x
+    set +x
+    echo " "
+    echo "+++++ SD TERMS"
     echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
     curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
-    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
-    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
+
+    echo " "
+    echo "++++ SD SCHEDULE"
     echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
     curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
+    set +x
+    echo " "
+
+    echo " "
+    echo "++++ SR TERMS"
+    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
+    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
+    set +x
+    echo " "
+
+    echo " "
+    echo "++++ SR SCHEDULE"
     echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
     curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
     set +x
@@ -50,6 +69,6 @@ function getTermsAll {
 
 set +x
 
-getTermsAll UNIQNAME 2010
+getTermsAll $UNIQNAME 2010
 
 #end
