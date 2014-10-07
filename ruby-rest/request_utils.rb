@@ -20,7 +20,8 @@ def run_request(request)
 
   response = RestClient.get url, { :Authorization =>"Bearer #{TOKEN}",
                                    :accept => :json,
-                                   :verify_ssl => OpenSSL::SSL::VERIFY_NONE}
+                                   :verify_ssl => true}
+#                                   :verify_ssl => OpenSSL::SSL::VERIFY_NONE}
   return response
 end
 
