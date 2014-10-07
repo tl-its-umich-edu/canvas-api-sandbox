@@ -9,6 +9,8 @@
 ## Read in token configuration information.
 source ./token.config StudentDashboardDev
 
+#CURL_OPTIONS=" -k "
+
 set +x
 
 ## call to UM schedule of classes
@@ -24,7 +26,7 @@ echo " "
 ### For DEV ESB application
 source ./token.config StudentDashboardDevDLH
 #UNIQNAME set in token.config
-curl -k -H "Authorization: Bearer $ACCESS_TOKEN" https://woodpigeon.dsc.umich.edu:8243/StudentDashboard/v1/Students/$UNIQNAME/Terms
+curl $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" https://woodpigeon.dsc.umich.edu:8243/StudentDashboard/v1/Students/$UNIQNAME/Terms
 
 echo " "
 

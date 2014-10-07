@@ -19,6 +19,9 @@ set +x
 #/Students/{uniqname}/Terms/{term}/Schedule
 
 
+# http://mywiki.wooledge.org/BashFAQ/050 contains hints on how to write
+# function that will successfully pass args on to a shell command.
+
 ### Get all variants for a student in a particular term.
 function getTermsAll {
     set +x
@@ -28,10 +31,11 @@ function getTermsAll {
     local t=$2
     echo "+++++++ STUDENT: $u"
 
-    #HOST=https://woodpigeon.dsc.umich.edu:8243
+#    CURL_OPTIONS=" -k "
+    HOST=https://woodpigeon.dsc.umich.edu:8243
 
     #HOST=http://api-gw.it.umich.edu
-    HOST=http://woodpigeon.dsc.umich.edu:8280
+    #HOST=http://woodpigeon.dsc.umich.edu:8280
 
     local URL_SD=$HOST/StudentDashboard/v1/Students/$u/Terms
     local URL_SD_SCHEDULE=$HOST/StudentDashboard/v1/Students/$u/Terms/$t/Schedule
@@ -42,27 +46,27 @@ function getTermsAll {
     set +x
     echo " "
     echo "+++++ SD TERMS"
-    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
-    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
+    echo curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
+    curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD
 
     echo " "
     echo "++++ SD SCHEDULE"
-    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
-    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
+    echo curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
+    curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SD_SCHEDULE
     set +x
     echo " "
 
     echo " "
     echo "++++ SR TERMS"
-    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
-    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
+    echo curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
+    curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR
     set +x
     echo " "
 
     echo " "
     echo "++++ SR SCHEDULE"
-    echo curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
-    curl  -k -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
+    echo curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
+    curl  $CURL_OPTIONS -H "Authorization: Bearer $ACCESS_TOKEN" $URL_SR_SCHEDULE
     set +x
     echo " "
 }
