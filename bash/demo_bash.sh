@@ -14,12 +14,12 @@ source ./token.config StudentDashboardDev
 set +x
 
 ## call to UM schedule of classes
-curl -k -H "Authorization: Bearer $ACCESS_TOKEN" https://api-gw.it.umich.edu/Curriculum/SOC/v1/Terms
+#curl -k -H "Authorization: Bearer $ACCESS_TOKEN" https://api-gw.it.umich.edu/Curriculum/SOC/v1/Terms
 
 echo " "
 
 ## call to Canvas production
-curl -k -H "Authorization: Bearer $ACCESS_TOKEN" https://api-gw.it.umich.edu/Canvas/Admin/v1//accounts/1/users
+#curl -k -H "Authorization: Bearer $ACCESS_TOKEN" https://api-gw.it.umich.edu/Canvas/Admin/v1//accounts/1/users
 
 echo " "
 
